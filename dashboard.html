@@ -35,14 +35,77 @@ Logout
 </div>
 
 
+<div class="stats">
+
+<div class="card">
+
+<h3>💰 Total</h3>
+
+<h2>
+
+₹<span id="total">0</span>
+
+</h2>
+
+</div>
+
+
+<div class="card">
+
+<h3>📌 This Month</h3>
+
+<h2 id="monthlyTotal">
+
+₹0
+
+</h2>
+
+</div>
+
+
+<div class="card">
+
+<h3>🍔 Top Category</h3>
+
+<h2 id="topCategory">
+
+-
+
+</h2>
+
+</div>
+
+
+<div class="card">
+
+<h3>🧾 Expenses</h3>
+
+<h2 id="expenseCount">
+
+0
+
+</h2>
+
+</div>
+
+</div>
+
+
+<div class="expense-box">
+
 <input
+
 id="expenseName"
+
 placeholder="Expense name">
 
 
 <input
+
 id="expenseAmount"
+
 type="number"
+
 placeholder="Amount">
 
 
@@ -67,18 +130,18 @@ Add Expense
 
 </button>
 
+</div>
 
-<h2>
 
-Total: ₹
+<div class="search-box">
 
-<span id="total">
+<input
 
-0
+id="searchInput"
 
-</span>
+placeholder="🔎 Search expenses">
 
-</h2>
+</div>
 
 
 <ul id="expenseList"></ul>
