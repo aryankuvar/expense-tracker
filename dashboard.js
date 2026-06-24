@@ -52,6 +52,19 @@ const {
 data:{user}
 } = await supabaseClient.auth.getUser();
 
+const now = new Date();
+
+const expenseDate =
+now.toISOString().split("T")[0];
+
+const expenseTime =
+now.toLocaleTimeString(
+[],
+{
+hour:"2-digit",
+minute:"2-digit"
+});
+
 
 const {error} =
 await supabaseClient
@@ -66,7 +79,11 @@ name,
 
 amount,
 
-category
+category,
+
+expense_date:expenseDate,
+
+expense_time:expenseTime
 
 });
 
@@ -74,6 +91,8 @@ category
 if(error){
 
 console.log(error);
+
+alert(error.message);
 
 return;
 
@@ -133,11 +152,19 @@ document.createElement("li");
 
 li.innerHTML = `
 
-${expense.name}
+<div>
 
-₹${expense.amount}
+<h3>${expense.name}</h3>
 
-(${expense.category})
+<p>₹${expense.amount}</p>
+
+<p>${expense.category}</p>
+
+<p>📅 ${expense.expense_date || "-"}</p>
+
+<p>🕒 ${expense.expense_time || "-"}</p>
+
+</div>
 
 <button onclick="deleteExpense(${expense.id})">
 
