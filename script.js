@@ -1,3 +1,4 @@
+let totalAmount = 0;
 const expenseForm = document.getElementById("expenseForm");
 
 const expenseName = document.getElementById("expenseName");
@@ -28,5 +29,9 @@ expenseForm.addEventListener("submit", function(event) {
         `${name} - ₹${amount} (${category})`;
 
     expenseList.appendChild(newExpense);
+
+    totalAmount += amount;
+
+total.textContent = totalAmount;
 
 });
