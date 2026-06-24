@@ -4,8 +4,8 @@ document.getElementById("username");
 const passwordInput =
 document.getElementById("password");
 
-const loginBtn =
-document.getElementById("loginBtn");
+const registerBtn =
+document.getElementById("registerBtn");
 
 const message =
 document.getElementById("message");
@@ -56,7 +56,7 @@ return null;
 }
 
 
-loginBtn.addEventListener(
+registerBtn.addEventListener(
 
 "click",
 
@@ -110,7 +110,7 @@ createEmail(username);
 
 
 const {error} =
-await supabaseClient.auth.signInWithPassword({
+await supabaseClient.auth.signUp({
 
 email,
 
@@ -122,14 +122,22 @@ password
 if(error){
 
 message.textContent =
-"Wrong username or password";
+error.message;
 
 return;
 
 }
 
 
+message.textContent =
+"Account created! Redirecting...";
+
+
+setTimeout(()=>{
+
 window.location.href =
-"dashboard.html";
+"index.html";
+
+},1500);
 
 });
