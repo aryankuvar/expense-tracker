@@ -19,6 +19,9 @@ document.getElementById("total");
 const logoutBtn =
 document.getElementById("logoutBtn");
 
+const searchInput =
+document.getElementById("searchInput");
+
 
 let totalAmount = 0;
 
@@ -222,5 +225,38 @@ await supabaseClient.auth.signOut();
 window.location.href =
 
 "index.html";
+
+});
+
+searchInput.addEventListener(
+
+"input",
+
+()=>{
+
+const search =
+searchInput.value.toLowerCase();
+
+const expenses =
+expenseList.querySelectorAll("li");
+
+expenses.forEach((expense)=>{
+
+const text =
+expense.textContent.toLowerCase();
+
+if(text.includes(search)){
+
+expense.style.display = "flex";
+
+}
+
+else{
+
+expense.style.display = "none";
+
+}
+
+});
 
 });
